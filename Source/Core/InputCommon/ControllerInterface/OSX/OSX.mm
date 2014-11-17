@@ -9,6 +9,7 @@
 #include "InputCommon/ControllerInterface/OSX/OSX.h"
 #include "InputCommon/ControllerInterface/OSX/OSXKeyboard.h"
 #include "InputCommon/ControllerInterface/OSX/OSXJoystick.h"
+#include "InputCommon/ControllerInterface/OSX/OSXRemoteJoystick.h"
 
 #include <map>
 
@@ -16,7 +17,6 @@ namespace ciface
 {
 namespace OSX
 {
-
 
 static IOHIDManagerRef HIDManager = nullptr;
 static CFStringRef OurRunLoop = CFSTR("DolphinOSXInput");
@@ -205,6 +205,12 @@ void Init(std::vector<Core::Device*>& devices, void *window)
 	IOHIDManagerRegisterDeviceMatchingCallback(HIDManager, nullptr, nullptr);
 	IOHIDManagerUnscheduleFromRunLoop(HIDManager,
 		CFRunLoopGetCurrent(), OurRunLoop);
+
+	
+	devices.push_back(new RemoteJoystick(1));
+	// devices.push_back(new RemoteJoystick(2));
+	// devices.push_back(new RemoteJoystick(3));
+	// devices.push_back(new RemoteJoystick(4));
 }
 
 void DeInit()

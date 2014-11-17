@@ -6,6 +6,7 @@
 
 #include <Foundation/Foundation.h>
 #include <IOKit/hid/IOHIDLib.h>
+#include <stdio.h>
 #include <Cocoa/Cocoa.h>
 
 #include "InputCommon/ControllerInterface/OSX/OSXKeyboard.h"
@@ -255,6 +256,7 @@ ControlState Keyboard::Cursor::GetState() const
 
 ControlState Keyboard::Button::GetState() const
 {
+	std::cout << m_button << std::endl;
 	return (m_button != 0);
 }
 

@@ -22,6 +22,7 @@ elseif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 				ControllerInterface/OSX/OSX.mm
 				ControllerInterface/OSX/OSXKeyboard.mm
 				ControllerInterface/OSX/OSXJoystick.mm
+				ControllerInterface/OSX/OSXRemoteJoystick.mm
 				ControllerInterface/ForceFeedback/ForceFeedbackDevice.cpp)
 	set(LIBS ${LIBS} ${COREFOUNDATION_LIBRARY} ${CARBON_LIBRARY} ${COCOA_LIBRARY})
 elseif(X11_FOUND)
